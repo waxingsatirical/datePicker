@@ -576,7 +576,8 @@ var datePickerController = (function datePickerController() {
 
             var osh         = o.div.offsetHeight,
                 osw         = o.div.offsetWidth,
-                elem        = document.getElementById('fd-but-' + o.id),
+                //elem = document.getElementById('fd-but-' + o.id),
+                elem = document.getElementById(o.id),
                 pos         = o.truePosition(elem),
                 trueBody    = (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body,
                 sOffsets    = o.getScrollOffsets(),
@@ -1120,7 +1121,8 @@ var datePickerController = (function datePickerController() {
             if(!this.staticPos) {
                 this.div.style.visibility = "hidden";
                 this.div.className += dragEnabledCN;
-                document.getElementsByTagName('body')[0].appendChild(this.div);
+                //document.getElementsByTagName('body')[0].appendChild(this.div);
+                document.getElementById(o.id).insertAdjacentElement("afterend", this.div);
 
                 if(oldIE === 6) {
                     this.iePopUp = document.createElement('iframe');
